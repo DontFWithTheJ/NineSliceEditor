@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "NineSliceEditor",
+	"Description": "Plugin for visually editing and previewing Slate Brush 9-slice margins.",
+	"Category": "UI",
+	"CreatedBy": "Ilya Odinets",
+	"CreatedByURL": "https://github.com/DontFWithTheJ",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "NineSliceEditor",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit"
+		}
+	],
+	"SupportURL": ""
+}

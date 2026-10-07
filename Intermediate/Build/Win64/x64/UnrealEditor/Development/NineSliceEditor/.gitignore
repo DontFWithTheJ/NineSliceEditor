@@ -1,0 +1,37 @@
+# Ignore everything in the repository by default
+*
+
+# Keep repository files
+!/.gitignore
+!/README.md
+!/LICENSE
+
+# Keep the NineSliceEditor plugin
+!/Plugins/
+!/Plugins/Developer/
+!/Plugins/Developer/NineSliceEditor/
+!/Plugins/Developer/NineSliceEditor/**
+
+# Do not commit generated Unreal files
+Plugins/Developer/NineSliceEditor/Binaries/
+Plugins/Developer/NineSliceEditor/Intermediate/
+Plugins/Developer/NineSliceEditor/Saved/
+Plugins/Developer/NineSliceEditor/DerivedDataCache/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.sln
+*.suo
+*.user
+*.userprefs
+
+# Unreal generated files
+Saved/
+Intermediate/
+DerivedDataCache/
+Binaries/
+
+# OS files
+.DS_Store
+Thumbs.db
