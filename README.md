@@ -4,6 +4,8 @@ A small Unreal Engine editor plugin for editing and previewing Slate Brush 9-sli
 
 The plugin adds an **Edit** button next to the `Margin` property of a `Slate Brush` and opens a visual editor where the four margins can be adjusted directly on the texture.
 
+![NineSliceEditor interface](images/editor_interface.png)
+
 ## Contents
 
 * [What is 9-Slice](#what-is-9-slice)
@@ -181,11 +183,9 @@ The plugin may require source code changes when built with a different Unreal En
 
 ## Releases
 
-Available releases will be listed here.
-
-| Version     | Unreal Engine | Download                         |
-| ----------- | ------------- | -------------------------------- |
-| Coming soon | UE 5.7        | [GitHub Release](../../releases) |
+| Version | Unreal Engine | Download                                    |
+| ------- | ------------- | ------------------------------------------- |
+| v1.0.0  | UE 5.7        | [GitHub Release](../../releases/tag/v1.0.0) |
 
 ---
 
