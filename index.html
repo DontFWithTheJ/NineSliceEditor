@@ -1,116 +1,74 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="NineSliceEditor documentation for Unreal Engine. English and Russian guides.">
-  <meta name="color-scheme" content="light">
-  <title>NineSliceEditor Documentation</title>
-  <style>
-    :root { color-scheme: light; --text:#24292f; --muted:#57606a; --border:#d0d7de; --accent:#0969da; --soft:#f6f8fa; --bg:#ffffff; }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin:0; color:var(--text); background:var(--bg); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
-    .topbar { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.96); border-bottom:1px solid var(--border); backdrop-filter:blur(8px); }
-    .topbar-inner { max-width:1080px; padding:12px 24px; margin:auto; display:flex; align-items:center; gap:18px; }
-    .brand { font-size:17px; font-weight:650; color:var(--text); text-decoration:none; white-space:nowrap; }
-    .tabs { display:flex; gap:4px; margin-left:auto; }
-    .tab { appearance:none; border:1px solid transparent; border-radius:7px; padding:7px 13px; background:transparent; color:var(--muted); font:inherit; font-size:14px; cursor:pointer; }
-    .tab:hover { background:var(--soft); color:var(--text); }
-    .tab[aria-selected="true"] { color:var(--text); background:var(--soft); border-color:var(--border); font-weight:600; }
-    .github { color:var(--text); text-decoration:none; border:1px solid var(--border); border-radius:7px; padding:7px 11px; font-size:14px; white-space:nowrap; }
-    .github:hover { background:var(--soft); }
-    main { max-width:1080px; margin:0 auto; padding:30px 24px 72px; }
-    .markdown-content { overflow-wrap:anywhere; }
-    .markdown-content h1,.markdown-content h2,.markdown-content h3,.markdown-content h4 { line-height:1.25; margin-top:1.65em; margin-bottom:.7em; font-weight:650; }
-    .markdown-content h1:first-child { display:none; }
-    .markdown-content h1 { font-size:2em; border-bottom:1px solid var(--border); padding-bottom:.35em; }
-    .markdown-content h2 { font-size:1.55em; padding-bottom:.3em; border-bottom:1px solid var(--border); }
-    .markdown-content h3 { font-size:1.22em; }
-    .markdown-content a { color:var(--accent); text-decoration:none; }
-    .markdown-content a:hover { text-decoration:underline; }
-    .markdown-content p { margin:.8em 0; }
-    .markdown-content img { display:block; max-width:100%; height:auto; margin:18px auto; border-radius:5px; }
-    .markdown-content ul,.markdown-content ol { padding-left:2em; }
-    .markdown-content li { margin:.25em 0; }
-    .markdown-content code { padding:.15em .35em; border-radius:5px; background:rgba(175,184,193,.2); font: .88em ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace; }
-    .markdown-content pre { padding:16px; overflow:auto; background:var(--soft); border:1px solid var(--border); border-radius:7px; line-height:1.5; }
-    .markdown-content pre code { padding:0; background:transparent; }
-    .markdown-content blockquote { margin:0; padding:0 1em; color:var(--muted); border-left:3px solid var(--border); }
-    .markdown-content table { border-collapse:collapse; display:block; width:100%; overflow:auto; margin:16px 0; }
-    .markdown-content th,.markdown-content td { border:1px solid var(--border); padding:7px 13px; text-align:left; }
-    .markdown-content th { background:var(--soft); font-weight:600; }
-    .markdown-content hr { height:1px; border:0; background:var(--border); margin:28px 0; }
-    .status { color:var(--muted); font-size:14px; }
-    @media(max-width:640px) {
-      .topbar-inner { padding:10px 14px; gap:8px; flex-wrap:wrap; }
-      .brand { font-size:15px; }
-      .tabs { order:3; width:100%; margin:0; }
-      .tab { flex:1; }
-      .github { margin-left:auto; }
-      main { padding:22px 16px 48px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090b10">
+<meta name="description" content="NineSliceEditor documentation: installation, usage, controls, and optional developer instructions.">
+<title>NineSliceEditor Documentation</title>
+<style>
+:root{color-scheme:dark;--bg:#090b10;--surface:#0e1219;--raised:#141b26;--hover:#1b2634;--line:#273241;--text:#e8eef7;--muted:#99a7ba;--dim:#6f7e92;--accent:#91caff;--blue:#4ba3ff;--soft:rgba(75,163,255,.13);--head:70px;--side:250px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;background:radial-gradient(ellipse 65% 33% at 50% -12%,rgba(53,111,171,.14),transparent 70%),var(--bg);color:var(--text);font:15px/1.75 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}a{color:var(--accent);text-decoration:none}a:hover{color:#d1e8ff}button,input{font:inherit;color:inherit}
+.topbar{position:sticky;top:0;z-index:30;height:var(--head);border-bottom:1px solid rgba(56,70,89,.65);background:rgba(9,11,16,.9);backdrop-filter:blur(18px)}.topbar-inner{max-width:1680px;height:100%;margin:auto;padding:0 30px;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;color:var(--text);min-width:0}.mark{display:grid;grid-template-columns:repeat(3,5px);gap:3px;padding:8px;border:1px solid #35465a;border-radius:11px;background:linear-gradient(145deg,#1b2a3c,#10151d)}.mark i{width:5px;height:5px;border-radius:1.5px;background:#609ed5}.mark i:nth-child(2n){background:#365e83}.mark i:nth-child(5){background:#b9dfff}.brand-name{display:block;font-size:15px;font-weight:750;letter-spacing:-.02em;line-height:1.2}.brand-sub{display:block;margin-top:4px;color:var(--dim);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.spacer{flex:1}.langs{display:flex;gap:3px;padding:4px;border:1px solid var(--line);border-radius:11px;background:#0d1118}.lang{border:1px solid transparent;border-radius:7px;padding:6px 12px;background:transparent;color:var(--muted);font-size:12px;cursor:pointer}.lang:hover{background:var(--hover);color:var(--text)}.lang[aria-pressed=true]{border-color:#2d4d6b;background:#1a2e42;color:#ecf6ff}.github{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #354456;border-radius:9px;background:linear-gradient(#171f2b,#10151d);color:#e4edf8;font-size:12px;font-weight:650}.github:hover{border-color:#5b7087;background:#1b2634;color:white}.github svg{width:16px;height:16px}.menu{display:none;width:38px;height:38px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:9px;background:var(--surface)}.menu svg{width:19px}
+.layout{display:grid;grid-template-columns:var(--side) minmax(0,820px) 195px;gap:43px;max-width:1680px;margin:auto;padding:30px 30px 85px;align-items:start}.sidebar{position:sticky;top:calc(var(--head) + 20px);max-height:calc(100vh - var(--head) - 40px);overflow-y:auto;padding:5px 8px 22px 0;scrollbar-width:thin;scrollbar-color:#334155 transparent}.side-top{padding:0 12px;margin-bottom:16px}.eyebrow{color:var(--dim);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.side-title{display:block;margin-top:5px;color:#dfe7f2;font-size:14px;font-weight:650}.searchbox{position:relative;margin:0 0 22px}.searchbox svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:#7b8aa0}.search{width:100%;height:39px;padding:0 36px;border:1px solid var(--line);border-radius:9px;outline:none;background:#0c1017;color:var(--text);font-size:12px}.search::placeholder{color:#78869a}.search:focus{border-color:#477eae;box-shadow:0 0 0 3px rgba(75,163,255,.1)}.key{position:absolute;right:9px;top:8px;width:20px;height:22px;border:1px solid #344052;border-radius:5px;color:#77869a;text-align:center;font:11px/21px ui-monospace,monospace}
+.navgroup{margin-bottom:6px}.navlink{display:flex;align-items:center;gap:10px;min-height:35px;padding:6px 12px;border-radius:8px;color:#aebaca;font-size:12px;line-height:1.45}.navlink:before{content:"";width:5px;height:5px;flex:0 0 5px;border:1px solid #526176;border-radius:50%}.navlink:hover{background:#131a24;color:#f1f7ff}.navlink.active{background:var(--soft);color:#dceeff;font-weight:650}.navlink.active:before{border-color:var(--blue);background:var(--blue);box-shadow:0 0 0 3px rgba(75,163,255,.1)}.navlink.level3{margin-left:17px;min-height:31px;padding:5px 10px;color:#8e9caf;font-size:11px}.navlink.level3:before{width:4px;height:4px;flex-basis:4px;border:0;background:#3d4a5e}.navlink.level3.active{background:transparent;color:#d1e7ff}.navlink.level3.active:before{background:var(--blue)}.empty{padding:8px 12px;color:var(--dim);font-size:12px}
+main{min-width:0}.article{min-width:0;padding:6px 0 35px;color:#c7d0df;overflow-wrap:anywhere}.article>h1:first-child{margin:7px 0 14px;color:#f3f7fc;font-size:clamp(34px,4vw,46px);line-height:1.13;letter-spacing:-.045em;font-weight:780}.article>h1:first-child+p{margin-top:0;color:#d7e0ed;font-size:17px;line-height:1.7}.article>h1:first-child+p+p{color:#a1adbd;font-size:14px}.article h2,.article h3,.article h4{scroll-margin-top:96px;line-height:1.35}.article h2{margin:53px 0 19px;padding-bottom:13px;border-bottom:1px solid var(--line);color:#f0f5fc;font-size:27px;letter-spacing:-.025em;font-weight:720}.article h3{margin:34px 0 12px;color:#e5edf8;font-size:19px;font-weight:680;letter-spacing:-.015em}.article h4{margin:25px 0 10px;color:#dbe7f5;font-size:16px;font-weight:650}.article p{margin:12px 0 17px}.article ul,.article ol{margin:12px 0 21px;padding-left:25px}.article li{padding-left:3px;margin:5px 0}.article li::marker{color:#71839a}.article strong{color:#eff5fd;font-weight:680}.article a{text-decoration:underline;text-decoration-color:rgba(139,198,255,.35);text-underline-offset:3px}.article a:hover{text-decoration-color:currentColor}.article img{display:block;max-width:100%;height:auto;margin:23px auto 29px;border:1px solid #293444;border-radius:12px;background:#0d1118;box-shadow:0 18px 60px rgba(0,0,0,.25)}.article code{padding:.2em .4em;border:1px solid #283444;border-radius:5px;background:#131a24;color:#d5e9ff;font:.88em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.article pre{max-width:100%;overflow:auto;margin:17px 0 24px;padding:17px 19px;border:1px solid #293545;border-radius:11px;background:#0d121a}.article pre code{padding:0;border:0;background:transparent;color:#c5d4e6;font-size:13px;line-height:1.7}.article blockquote{margin:20px 0;padding:3px 0 3px 17px;border-left:3px solid #4b90c9;color:#aab8cb}.article table{display:block;width:100%;max-width:100%;overflow:auto;margin:20px 0 28px;border:1px solid #2b3544;border-radius:10px;border-spacing:0;border-collapse:separate}.article th,.article td{min-width:120px;padding:10px 14px;border-right:1px solid #283342;border-bottom:1px solid #283342;text-align:left}.article th{background:#151c27;color:#eef4fc;font-size:13px;font-weight:650}.article td{background:rgba(16,21,30,.6)}.article tr:last-child td{border-bottom:0}.article th:last-child,.article td:last-child{border-right:0}.article hr{height:1px;margin:30px 0;border:0;background:var(--line)}
+.right{position:sticky;top:calc(var(--head) + 28px);padding:14px 0 20px}.right-title{margin:0 0 13px;color:#748296;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.right nav{padding-left:13px;border-left:1px solid #283342}.rightlink{display:block;padding:5px 0;color:#8693a6;font-size:11px;line-height:1.5}.rightlink:hover,.rightlink.active{color:#cfe6ff}.rightlink.active{font-weight:650}.footer{margin-top:40px;padding:22px 0 10px;border-top:1px solid #252f3d;color:#778599;font-size:12px}.footer a{color:#a2cfff}.backdrop{display:none}.hidden-accessible{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1320px){.layout{grid-template-columns:225px minmax(0,820px);gap:35px}.right{display:none}}
+@media(max-width:880px){:root{--head:64px}.topbar-inner{padding:0 16px;gap:10px}.menu{display:inline-flex}.brand-sub{display:none}.layout{display:block;max-width:800px;padding:22px 22px 60px}.sidebar{position:fixed;z-index:45;left:0;top:var(--head);bottom:0;width:min(310px,88vw);height:auto;max-height:none;overflow-y:auto;padding:22px 20px 28px;background:#0c1017;border-right:1px solid var(--line);box-shadow:16px 0 60px #0006;transform:translateX(-105%);transition:transform .22s ease}.nav-open .sidebar{transform:translateX(0)}.backdrop{display:block;position:fixed;z-index:40;inset:var(--head) 0 0;border:0;background:rgba(0,0,0,.62);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}.nav-open .backdrop{opacity:1;visibility:visible}.article h2{margin-top:43px;font-size:25px}}
+@media(max-width:540px){.topbar-inner{padding:0 11px;gap:8px}.brand{gap:8px}.brand-name{font-size:13px}.mark{grid-template-columns:repeat(3,4px);gap:2px;padding:7px;border-radius:9px}.mark i{width:4px;height:4px}.lang{padding:6px 8px;font-size:11px}.github{width:36px;height:36px;justify-content:center;padding:0;font-size:0}.github svg{width:17px;height:17px}.layout{padding:18px 16px 50px}.article{font-size:14px;line-height:1.75}.article>h1:first-child{font-size:33px}.article>h1:first-child+p{font-size:15px}.article h2{font-size:23px}.article h3{font-size:18px}.article pre{padding:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="./">NineSliceEditor</a>
-      <nav class="tabs" role="tablist" aria-label="Documentation language">
-        <button class="tab" id="tab-en" role="tab" aria-selected="true" aria-controls="doc-content" type="button">English</button>
-        <button class="tab" id="tab-ru" role="tab" aria-selected="false" aria-controls="doc-content" type="button">Русский</button>
-      </nav>
-      <a class="github" href="https://github.com/DontFWithTheJ/NineSliceEditor" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-    </div>
-  </header>
-  <main>
-    <div id="doc-content" class="markdown-content" role="tabpanel" aria-labelledby="tab-en">
-      <p class="status">Loading documentation…</p>
-    </div>
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
-  <script>
-    const content = document.getElementById('doc-content');
-    const tabs = {
-      en: document.getElementById('tab-en'),
-      ru: document.getElementById('tab-ru')
-    };
-    const cache = {};
-    async function showLanguage(language) {
-      document.documentElement.lang = language;
-      for (const key of Object.keys(tabs)) {
-        tabs[key].setAttribute('aria-selected', String(key === language));
-      }
-      content.setAttribute('aria-labelledby', tabs[language].id);
-      content.innerHTML = '<p class="status">Loading documentation…</p>';
-      try {
-        if (!cache[language]) {
-          const path = language === 'ru' ? './README.ru.md' : './README.md';
-          const response = await fetch(path, { cache: 'no-cache' });
-          if (!response.ok) throw new Error('HTTP ' + response.status);
-          cache[language] = await response.text();
-        }
-        if (!window.marked) throw new Error('Markdown renderer did not load');
-        content.innerHTML = window.marked.parse(cache[language]);
-        const usedIds = new Map();
-        content.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading) => {
-          const base = heading.textContent.toLowerCase().trim()
-            .replace(/<[^>]*>/g, '')
-            .replace(/[^\p{L}\p{N}_\s-]/gu, '')
-            .replace(/\s+/g, '-')
-            .replace(/-+/g, '-');
-          const count = usedIds.get(base) || 0;
-          usedIds.set(base, count + 1);
-          heading.id = count === 0 ? base : base + '-' + count;
-        });
-      } catch (error) {
-        const githubPath = language === 'ru' ? 'README.ru.md' : 'README.md';
-        content.innerHTML = '<p>Не удалось загрузить документацию автоматически.</p><p><a href="https://github.com/DontFWithTheJ/NineSliceEditor/blob/master/' + githubPath + '">Открыть README на GitHub</a></p>';
-      }
-    }
-    tabs.en.addEventListener('click', () => showLanguage('en'));
-    tabs.ru.addEventListener('click', () => showLanguage('ru'));
-    showLanguage('en');
-  </script>
+<header class="topbar"><div class="topbar-inner">
+<button class="menu" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="./" aria-label="NineSliceEditor documentation home"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span><span class="brand-name">NineSliceEditor</span><span class="brand-sub">Documentation</span></span></a>
+<div class="spacer"></div>
+<div class="langs" role="group" aria-label="Documentation language"><button class="lang" id="lang-en" type="button" aria-pressed="true">English</button><button class="lang" id="lang-ru" type="button" aria-pressed="false">Русский</button></div>
+<a class="github" href="https://github.com/DontFWithTheJ/NineSliceEditor" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.68-3.75-1.32-3.75-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.62 1.21 3.26.93.1-.72.39-1.21.71-1.49-2.47-.28-5.07-1.24-5.07-5.5 0-1.21.43-2.2 1.15-2.98-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.56 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.66.12 2.94.71.78 1.14 1.77 1.14 2.98 0 4.27-2.61 5.21-5.1 5.49.4.35.76 1.02.76 2.06v3.07c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg><span>GitHub</span></a>
+</div></header>
+<button class="backdrop" id="backdrop" type="button" aria-label="Close navigation" aria-hidden="true"></button>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="Documentation navigation">
+<div class="side-top"><span class="eyebrow" id="nav-eyebrow">Guide</span><strong class="side-title" id="nav-title">Browse documentation</strong></div>
+<label class="searchbox"><span class="hidden-accessible" id="search-label">Search sections</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.3 4.3"/></svg><input class="search" id="nav-search" type="search" placeholder="Find a section..." autocomplete="off"><span class="key" aria-hidden="true">/</span></label>
+<nav id="side-nav"></nav>
+</aside>
+<main><article id="doc-content" class="article" aria-live="polite"><p>Loading documentation…</p></article><footer class="footer"><span id="footer-text">NineSliceEditor documentation</span><span> · </span><a href="https://github.com/DontFWithTheJ/NineSliceEditor" target="_blank" rel="noopener noreferrer">GitHub</a></footer></main>
+<aside class="right" aria-label="Section contents"><p class="right-title" id="right-title">On this page</p><nav id="section-nav"></nav></aside>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+<script>
+const content=document.getElementById('doc-content'),sideNav=document.getElementById('side-nav'),sectionNav=document.getElementById('section-nav'),search=document.getElementById('nav-search'),menu=document.getElementById('menu-toggle'),backdrop=document.getElementById('backdrop');
+const langButtons={en:document.getElementById('lang-en'),ru:document.getElementById('lang-ru')};
+const labels={en:{guide:'Guide',title:'Browse documentation',search:'Find a section...',searchLabel:'Search sections',onPage:'On this page',footer:'NineSliceEditor documentation',loading:'Loading documentation…',failed:'Could not load documentation.'},ru:{guide:'Руководство',title:'Разделы документации',search:'Найти раздел...',searchLabel:'Поиск по разделам',onPage:'В этом разделе',footer:'Документация NineSliceEditor',loading:'Загрузка документации…',failed:'Не удалось загрузить документацию.'}};
+const cache={};let language='en',headings=[],navItems=[],activeSection='';
+function slug(value){return value.toLocaleLowerCase().trim().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^\p{L}\p{N}_\s-]/gu,'').replace(/\s+/g,'-').replace(/-+/g,'-')}
+function closeMenu(){document.body.classList.remove('nav-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label',language==='ru'?'Открыть навигацию':'Open navigation');backdrop.setAttribute('aria-hidden','true')}
+function toggleMenu(){const open=!document.body.classList.contains('nav-open');document.body.classList.toggle('nav-open',open);menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?(language==='ru'?'Закрыть навигацию':'Close navigation'):(language==='ru'?'Открыть навигацию':'Open navigation'));backdrop.setAttribute('aria-hidden',String(!open))}
+function prepareContent(){
+ const tocName=language==='ru'?'содержание':'contents',toc=Array.from(content.querySelectorAll('h2')).find(h=>h.textContent.trim().toLocaleLowerCase()===tocName);
+ if(toc){const list=toc.nextElementSibling,hr=list&&list.nextElementSibling&&list.nextElementSibling.tagName==='HR'?list.nextElementSibling:null;toc.remove();if(list&&list.tagName==='UL')list.remove();if(hr)hr.remove()}
+ const used=new Map();headings=Array.from(content.querySelectorAll('h2,h3'));headings.forEach((h,i)=>{const base=slug(h.textContent)||'section-'+i,count=used.get(base)||0;used.set(base,count+1);h.id=count?base+'-'+count:base})
+}
+function createLink(heading,level,klass='navlink'){const a=document.createElement('a');a.className=klass+(level===3?' level3':'');a.href='#'+heading.id;a.textContent=heading.textContent.trim();a.dataset.headingId=heading.id;a.dataset.search=a.textContent.toLocaleLowerCase();a.addEventListener('click',()=>{closeMenu();if(location.hash!==a.hash)history.replaceState(null,'',a.hash)});return a}
+function buildNav(){sideNav.replaceChildren();navItems=[];let group=null;headings.forEach(h=>{if(h.tagName==='H2'){group=document.createElement('div');group.className='navgroup';const a=createLink(h,2);group.append(a);sideNav.append(group);navItems.push({heading:h,link:a})}else if(group){const a=createLink(h,3);group.append(a);navItems.push({heading:h,link:a})}})}
+function currentHeading(){let active=headings[0]||null;for(const h of headings){if(h.getBoundingClientRect().top<=150)active=h;else break}return active}
+function makeOutline(section){sectionNav.replaceChildren();if(!section)return;const start=headings.indexOf(section);for(let i=start+1;i<headings.length&&headings[i].tagName!=='H2';i++){if(headings[i].tagName==='H3'){const a=createLink(headings[i],3,'rightlink');sectionNav.append(a)}}}
+function updateNav(){if(!headings.length)return;const current=currentHeading();let section=current;if(current&&current.tagName==='H3')section=headings.slice(0,headings.indexOf(current)+1).reverse().find(h=>h.tagName==='H2');navItems.forEach(item=>item.link.classList.toggle('active',item.heading.id===(current&&current.id)||(item.heading.tagName==='H2'&&section&&item.heading.id===section.id)));if(section&&section.id!==activeSection){activeSection=section.id;makeOutline(section)}sectionNav.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.dataset.headingId===(current&&current.id)))}
+function filterNav(){const q=search.value.trim().toLocaleLowerCase();let matches=0;sideNav.querySelectorAll('.navgroup').forEach(g=>{const links=Array.from(g.querySelectorAll('.navlink'));let n=0;links.forEach(a=>{a.hidden=!!q&&!a.dataset.search.includes(q);if(!a.hidden)n++});g.hidden=!n;matches+=n});let empty=sideNav.querySelector('.empty');if(q&&!matches){if(!empty){empty=document.createElement('p');empty.className='empty';sideNav.append(empty)}empty.textContent=language==='ru'?'Ничего не найдено.':'No matching sections.'}else if(empty)empty.remove()}
+async function showLanguage(next){
+ language=next;document.documentElement.lang=language;try{localStorage.setItem('nineSliceDocsLanguage',language)}catch(e){}
+ Object.entries(langButtons).forEach(([key,b])=>b.setAttribute('aria-pressed',String(key===language)));
+ document.getElementById('nav-eyebrow').textContent=labels[language].guide;document.getElementById('nav-title').textContent=labels[language].title;document.getElementById('search-label').textContent=labels[language].searchLabel;document.getElementById('right-title').textContent=labels[language].onPage;document.getElementById('footer-text').textContent=labels[language].footer;search.placeholder=labels[language].search;content.innerHTML='<p>'+labels[language].loading+'</p>';
+ try{if(!cache[language]){const r=await fetch(language==='ru'?'./README.ru.md':'./README.md',{cache:'no-cache'});if(!r.ok)throw new Error('HTTP '+r.status);cache[language]=await r.text()}if(!window.marked)throw new Error('Markdown renderer unavailable');content.innerHTML=window.marked.parse(cache[language]);prepareContent();activeSection='';buildNav();filterNav();sectionNav.replaceChildren();window.scrollTo({top:0,behavior:'instant'});closeMenu();updateNav()}catch(e){content.innerHTML='<h1>NineSliceEditor</h1><p>'+labels[language].failed+'</p><p><a href="https://github.com/DontFWithTheJ/NineSliceEditor/blob/master/'+(language==='ru'?'README.ru.md':'README.md')+'">README on GitHub</a></p>';sideNav.replaceChildren()}
+}
+langButtons.en.addEventListener('click',()=>showLanguage('en'));langButtons.ru.addEventListener('click',()=>showLanguage('ru'));menu.addEventListener('click',toggleMenu);backdrop.addEventListener('click',closeMenu);search.addEventListener('input',filterNav);search.addEventListener('keydown',e=>{if(e.key==='Enter'){const a=sideNav.querySelector('.navlink:not([hidden])');if(a)a.click()}if(e.key==='Escape'){search.value='';filterNav();search.blur()}});
+window.addEventListener('scroll',updateNav,{passive:true});window.addEventListener('resize',()=>{if(innerWidth>880)closeMenu()});document.addEventListener('keydown',e=>{if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();search.focus()}if(e.key==='Escape')closeMenu()});
+let preferred='en';try{preferred=localStorage.getItem('nineSliceDocsLanguage')||'en'}catch(e){}showLanguage(preferred==='ru'?'ru':'en');
+</script>
 </body>
 </html>
