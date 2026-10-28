@@ -96,8 +96,8 @@
         content.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading) => {
           const base = heading.textContent.toLowerCase().trim()
             .replace(/<[^>]*>/g, '')
-            .replace(/[^\\p{L}\\p{N}_\\s-]/gu, '')
-            .replace(/\\s+/g, '-')
+            .replace(/[^\p{L}\p{N}_\s-]/gu, '')
+            .replace(/\s+/g, '-')
             .replace(/-+/g, '-');
           const count = usedIds.get(base) || 0;
           usedIds.set(base, count + 1);
