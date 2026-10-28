@@ -1,40 +1,53 @@
-[**English**](README.md) · [Русский](README.ru.md)
-
 # NineSliceEditor
 
 Edit and preview 9-slice margins for Slate Brushes directly on the texture in Unreal Engine.
 
 NineSliceEditor adds an **Edit** button next to the `Margin` property of a Slate Brush. Clicking it opens a visual editor where all four margins can be adjusted directly on the texture.
 
-**Current release:** v1.0.0 · **Unreal Engine:** 5.7
-
 ![NineSliceEditor interface](images/editor_interface.png)
 
 ## Contents
 
-- [What Is 9-Slice?](#what-is-9-slice)
-- [Using the Plugin](#using-the-plugin)
-  - [Opening the Editor](#opening-the-editor)
-  - [Editing Margins](#editing-margins)
-  - [Mouse Controls](#mouse-controls)
-  - [Zoom Controls](#zoom-controls)
-  - [Color Controls](#color-controls)
-  - [Preview](#preview)
-  - [Apply and Cancel](#apply-and-cancel)
 - [Installation](#installation)
-  - [Installing from a Release](#installing-from-a-release)
-  - [Enabling the Plugin](#enabling-the-plugin)
-  - [Installing for an Engine Version](#installing-for-an-engine-version)
-  - [Getting the Source Code](#getting-the-source-code)
-- [Building from Source](#building-from-source)
-  - [Packaging with Unreal Automation Tool](#packaging-with-unreal-automation-tool)
-  - [Building Through an Unreal Project](#building-through-an-unreal-project)
-- [Releases](#releases)
+- [Using the Plugin](#using-the-plugin)
+- [Building from Source (Optional)](#building-from-source-optional)
 - [License](#license)
 
 ---
 
-## What Is 9-Slice?
+## Installation
+
+### Install from Fab
+
+For normal use, install NineSliceEditor through Fab. **You do not need to build the plugin from source.**
+
+1. Add NineSliceEditor to your Fab Library on the [Fab website](https://www.fab.com/) or in the Fab window inside Unreal Engine.
+2. Open the Epic Games Launcher and go to **Unreal Engine → Library**.
+3. Find NineSliceEditor in the **Fab Library** section and click **Install to Engine**.
+4. Select an installed Unreal Engine version supported by the plugin, then click **Install**.
+5. When installation is complete, launch that engine version and open your project.
+
+If you added the plugin to your library from the Fab window inside Unreal Engine, close the editor before installing it from the Fab Library in the Epic Games Launcher.
+
+The plugin is installed for the selected engine version. You still need to enable it for your project before using it.
+
+## Using the Plugin
+
+### Enable the Plugin
+
+After installing NineSliceEditor through Fab:
+
+1. Open your project in the corresponding Unreal Engine version.
+2. From the main menu, select **Edit → Plugins**.
+3. Search for `NineSliceEditor`.
+4. Enable the plugin using the checkbox.
+5. Restart Unreal Engine if prompted.
+
+![NineSliceEditor enabled in the Plugins window](images/plugin_enabled.png)
+
+Once enabled, find the **Margin** property of a Slate Brush to open the editor. **Draw As** must be set to **Box** or **Border**.
+
+### What Is 9-Slice?
 
 9-slice scaling is a way to resize a texture without distorting its corners. It is commonly used for UI elements such as buttons, panels, windows, and borders, which need to fit different sizes while keeping their original appearance.
 
@@ -59,8 +72,6 @@ When the brush is resized, the edges and center adapt to the new dimensions whil
 In Unreal Engine, these margins are set on the Slate Brush. Adjusting them by entering values in the Details panel can be inconvenient, especially when the correct boundaries are not obvious from the numbers alone.
 
 NineSliceEditor makes this easier by displaying the texture and its margins in a visual editor. Move the guides directly on the image and check the result in the preview.
-
-## Using the Plugin
 
 ### Opening the Editor
 
@@ -147,87 +158,19 @@ When you finish editing, choose one of the following:
 
 ---
 
-## Installation
+## Building from Source (Optional)
 
-### Installing from a Release
+This section is for developers who want to modify or debug the plugin, or build it manually. If you installed NineSliceEditor from Fab and only want to use it, you can skip this entire section.
 
-The easiest way to install NineSliceEditor is to download a packaged release.
+### Get the Source Code
 
-1. Open the [Releases](../../releases) page.
-2. Download the ZIP package for your Unreal Engine version.
-3. Close Unreal Engine if it is running.
-4. Extract the archive.
-5. Copy the `NineSliceEditor` plugin folder into your project's `Plugins` directory. Create the directory if it does not exist.
-
-For example:
-
-```text
-YourProject/
-└── Plugins/
-    └── NineSliceEditor/
-        ├── NineSliceEditor.uplugin
-        └── ...
-```
-
-The exact contents depend on the release package. The important part is that `NineSliceEditor.uplugin` is directly inside the `NineSliceEditor` folder, not inside another folder with the same name.
-
-### Enabling the Plugin
-
-After copying the plugin into your project:
-
-1. Open the project in Unreal Engine.
-2. Select **Edit → Plugins** from the top menu.
-3. Search for `NineSliceEditor`.
-4. Enable the plugin using the checkbox.
-5. Restart Unreal Engine if prompted.
-
-![NineSliceEditor enabled in the Plugins window](images/plugin_enabled.png)
-
-If the plugin does not appear in the list, check that the `.uplugin` file is in the correct directory and that you installed a package compatible with your engine version.
-
-### Installing for an Engine Version
-
-You can also install the plugin into the engine's plugin directory. This makes it available to projects using that specific Unreal Engine installation.
-
-For example, for Unreal Engine 5.7 installed through the Epic Games Launcher on Windows:
-
-```text
-C:\Program Files\Epic Games\UE_5.7\Engine\Plugins\Marketplace\NineSliceEditor\
-```
-
-The location may differ depending on where Unreal Engine is installed.
-
-1. Close Unreal Engine.
-2. Copy the packaged `NineSliceEditor` folder into the engine's plugin directory.
-3. Make sure `NineSliceEditor.uplugin` is directly inside the `NineSliceEditor` folder.
-4. Launch your project and enable NineSliceEditor through **Edit → Plugins** if necessary.
-
-Use a package built for the same Unreal Engine version as the installation. If you only have the source code or need a package for another engine version, follow the instructions in [Building from Source](#building-from-source).
-
-This installation applies to one engine installation. It does not automatically install the plugin for every Unreal Engine version on your computer.
-
-**Which installation should you choose?**
-
-- **Project installation:** use this if you only need NineSliceEditor in a particular project.
-- **Engine installation:** use this if you want the plugin to be available to multiple projects using the same engine installation.
-
-### Getting the Source Code
-
-To get the plugin source code, clone the repository:
+Clone the repository:
 
 ```bash
 git clone https://github.com/DontFWithTheJ/NineSliceEditor.git
 ```
 
-Alternatively, open the repository on GitHub, select **Code → Download ZIP**, and extract the archive.
-
-The repository contains the plugin source code. If you want to use it in a project, modify it, or build it for another Unreal Engine version, follow the appropriate build instructions below.
-
-## Building from Source
-
-Building from source is only necessary if you want to modify the plugin, debug it, or prepare a package for an Unreal Engine version that does not have a suitable release.
-
-There are two approaches, depending on how you intend to use the plugin.
+Alternatively, open the [GitHub repository](https://github.com/DontFWithTheJ/NineSliceEditor), select **Code → Download ZIP**, and extract the archive.
 
 ### Packaging with Unreal Automation Tool
 
@@ -290,16 +233,10 @@ If the plugin does not compile with a different Unreal Engine version, source co
 
 ---
 
-## Releases
-
-| Version | Unreal Engine | Download |
-| --- | --- | --- |
-| v1.0.0 | UE 5.7 | [GitHub Release](../../releases/tag/v1.0.0) |
-
 ## License
 
 NineSliceEditor is free to use and modify, including in commercial projects. Redistribution of the original or modified plugin is permitted only under the terms of the included license.
 
 Selling the plugin itself or offering it as a paid product is prohibited. Projects created using the plugin may be distributed and sold commercially.
 
-See the [LICENSE](LICENSE) file for the full terms.
+See the [LICENSE](https://github.com/DontFWithTheJ/NineSliceEditor/blob/master/LICENSE) file for the full terms.
