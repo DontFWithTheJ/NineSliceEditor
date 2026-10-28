@@ -1,35 +1,18 @@
-[**English**](README.md) · [Русский](README.ru.md)
-
 # NineSliceEditor
 
 Edit and preview 9-slice margins for Slate Brushes directly on the texture in Unreal Engine.
 
 NineSliceEditor adds an **Edit** button next to the `Margin` property of a Slate Brush. Clicking it opens a visual editor where all four margins can be adjusted directly on the texture.
 
-**Current release:** v1.0.0 · **Unreal Engine:** 5.7
+**Unreal Engine:** 5.7 · [**GitHub repository**](https://github.com/DontFWithTheJ/NineSliceEditor)
 
 ![NineSliceEditor interface](images/editor_interface.png)
 
 ## Contents
 
-- [What Is 9-Slice?](#what-is-9-slice)
-- [Using the Plugin](#using-the-plugin)
-  - [Opening the Editor](#opening-the-editor)
-  - [Editing Margins](#editing-margins)
-  - [Mouse Controls](#mouse-controls)
-  - [Zoom Controls](#zoom-controls)
-  - [Color Controls](#color-controls)
-  - [Preview](#preview)
-  - [Apply and Cancel](#apply-and-cancel)
 - [Installation](#installation)
-  - [Installing from a Release](#installing-from-a-release)
-  - [Enabling the Plugin](#enabling-the-plugin)
-  - [Installing for an Engine Version](#installing-for-an-engine-version)
-  - [Getting the Source Code](#getting-the-source-code)
+- [Using the Plugin](#using-the-plugin)
 - [Building from Source](#building-from-source)
-  - [Packaging with Unreal Automation Tool](#packaging-with-unreal-automation-tool)
-  - [Building Through an Unreal Project](#building-through-an-unreal-project)
-- [Releases](#releases)
 - [License](#license)
 
 ---
@@ -153,7 +136,7 @@ When you finish editing, choose one of the following:
 
 The easiest way to install NineSliceEditor is to download a packaged release.
 
-1. Open the [Releases](../../releases) page.
+1. Open the [Releases](https://github.com/DontFWithTheJ/NineSliceEditor/releases) page.
 2. Download the ZIP package for your Unreal Engine version.
 3. Close Unreal Engine if it is running.
 4. Extract the archive.
@@ -290,16 +273,10 @@ If the plugin does not compile with a different Unreal Engine version, source co
 
 ---
 
-## Releases
-
-| Version | Unreal Engine | Download |
-| --- | --- | --- |
-| v1.0.0 | UE 5.7 | [GitHub Release](../../releases/tag/v1.0.0) |
-
 ## License
 
 NineSliceEditor is free to use and modify, including in commercial projects. Redistribution of the original or modified plugin is permitted only under the terms of the included license.
 
 Selling the plugin itself or offering it as a paid product is prohibited. Projects created using the plugin may be distributed and sold commercially.
 
-See the [LICENSE](LICENSE) file for the full terms.
+See the [LICENSE](https://github.com/DontFWithTheJ/NineSliceEditor/blob/master/LICENSE) file for the full terms.
