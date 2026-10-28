@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NineSliceEditor documentation for Unreal Engine. English and Russian guides.">
+  <meta name="color-scheme" content="light">
+  <title>NineSliceEditor Documentation</title>
+  <style>
+    :root { color-scheme: light; --text:#24292f; --muted:#57606a; --border:#d0d7de; --accent:#0969da; --soft:#f6f8fa; --bg:#ffffff; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; color:var(--text); background:var(--bg); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
+    .topbar { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.96); border-bottom:1px solid var(--border); backdrop-filter:blur(8px); }
+    .topbar-inner { max-width:1080px; padding:12px 24px; margin:auto; display:flex; align-items:center; gap:18px; }
+    .brand { font-size:17px; font-weight:650; color:var(--text); text-decoration:none; white-space:nowrap; }
+    .tabs { display:flex; gap:4px; margin-left:auto; }
+    .tab { appearance:none; border:1px solid transparent; border-radius:7px; padding:7px 13px; background:transparent; color:var(--muted); font:inherit; font-size:14px; cursor:pointer; }
+    .tab:hover { background:var(--soft); color:var(--text); }
+    .tab[aria-selected="true"] { color:var(--text); background:var(--soft); border-color:var(--border); font-weight:600; }
+    .github { color:var(--text); text-decoration:none; border:1px solid var(--border); border-radius:7px; padding:7px 11px; font-size:14px; white-space:nowrap; }
+    .github:hover { background:var(--soft); }
+    main { max-width:1080px; margin:0 auto; padding:30px 24px 72px; }
+    .markdown-content { overflow-wrap:anywhere; }
+    .markdown-content h1,.markdown-content h2,.markdown-content h3,.markdown-content h4 { line-height:1.25; margin-top:1.65em; margin-bottom:.7em; font-weight:650; }
+    .markdown-content h1:first-child { display:none; }
+    .markdown-content h1 { font-size:2em; border-bottom:1px solid var(--border); padding-bottom:.35em; }
+    .markdown-content h2 { font-size:1.55em; padding-bottom:.3em; border-bottom:1px solid var(--border); }
+    .markdown-content h3 { font-size:1.22em; }
+    .markdown-content a { color:var(--accent); text-decoration:none; }
+    .markdown-content a:hover { text-decoration:underline; }
+    .markdown-content p { margin:.8em 0; }
+    .markdown-content img { display:block; max-width:100%; height:auto; margin:18px auto; border-radius:5px; }
+    .markdown-content ul,.markdown-content ol { padding-left:2em; }
+    .markdown-content li { margin:.25em 0; }
+    .markdown-content code { padding:.15em .35em; border-radius:5px; background:rgba(175,184,193,.2); font: .88em ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace; }
+    .markdown-content pre { padding:16px; overflow:auto; background:var(--soft); border:1px solid var(--border); border-radius:7px; line-height:1.5; }
+    .markdown-content pre code { padding:0; background:transparent; }
+    .markdown-content blockquote { margin:0; padding:0 1em; color:var(--muted); border-left:3px solid var(--border); }
+    .markdown-content table { border-collapse:collapse; display:block; width:100%; overflow:auto; margin:16px 0; }
+    .markdown-content th,.markdown-content td { border:1px solid var(--border); padding:7px 13px; text-align:left; }
+    .markdown-content th { background:var(--soft); font-weight:600; }
+    .markdown-content hr { height:1px; border:0; background:var(--border); margin:28px 0; }
+    .status { color:var(--muted); font-size:14px; }
+    @media(max-width:640px) {
+      .topbar-inner { padding:10px 14px; gap:8px; flex-wrap:wrap; }
+      .brand { font-size:15px; }
+      .tabs { order:3; width:100%; margin:0; }
+      .tab { flex:1; }
+      .github { margin-left:auto; }
+      main { padding:22px 16px 48px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./">NineSliceEditor</a>
+      <nav class="tabs" role="tablist" aria-label="Documentation language">
+        <button class="tab" id="tab-en" role="tab" aria-selected="true" aria-controls="doc-content" type="button">English</button>
+        <button class="tab" id="tab-ru" role="tab" aria-selected="false" aria-controls="doc-content" type="button">Русский</button>
+      </nav>
+      <a class="github" href="https://github.com/DontFWithTheJ/NineSliceEditor" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </header>
+  <main>
+    <div id="doc-content" class="markdown-content" role="tabpanel" aria-labelledby="tab-en">
+      <p class="status">Loading documentation…</p>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+  <script>
+    const content = document.getElementById('doc-content');
+    const tabs = {
+      en: document.getElementById('tab-en'),
+      ru: document.getElementById('tab-ru')
+    };
+    const cache = {};
+    async function showLanguage(language) {
+      document.documentElement.lang = language;
+      for (const key of Object.keys(tabs)) {
+        tabs[key].setAttribute('aria-selected', String(key === language));
+      }
+      content.setAttribute('aria-labelledby', tabs[language].id);
+      content.innerHTML = '<p class="status">Loading documentation…</p>';
+      try {
+        if (!cache[language]) {
+          const path = language === 'ru' ? './README.ru.md' : './README.md';
+          const response = await fetch(path, { cache: 'no-cache' });
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          cache[language] = await response.text();
+        }
+        if (!window.marked) throw new Error('Markdown renderer did not load');
+        content.innerHTML = window.marked.parse(cache[language]);
+      } catch (error) {
+        const githubPath = language === 'ru' ? 'README.ru.md' : 'README.md';
+        content.innerHTML = '<p>Не удалось загрузить документацию автоматически.</p><p><a href="https://github.com/DontFWithTheJ/NineSliceEditor/blob/master/' + githubPath + '">Открыть README на GitHub</a></p>';
+      }
+    }
+    tabs.en.addEventListener('click', () => showLanguage('en'));
+    tabs.ru.addEventListener('click', () => showLanguage('ru'));
+    showLanguage('en');
+  </script>
+</body>
+</html>
