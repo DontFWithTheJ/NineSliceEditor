@@ -92,6 +92,17 @@
         }
         if (!window.marked) throw new Error('Markdown renderer did not load');
         content.innerHTML = window.marked.parse(cache[language]);
+        const usedIds = new Map();
+        content.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading) => {
+          const base = heading.textContent.toLowerCase().trim()
+            .replace(/<[^>]*>/g, '')
+            .replace(/[^\\p{L}\\p{N}_\\s-]/gu, '')
+            .replace(/\\s+/g, '-')
+            .replace(/-+/g, '-');
+          const count = usedIds.get(base) || 0;
+          usedIds.set(base, count + 1);
+          heading.id = count === 0 ? base : base + '-' + count;
+        });
       } catch (error) {
         const githubPath = language === 'ru' ? 'README.ru.md' : 'README.md';
         content.innerHTML = '<p>Не удалось загрузить документацию автоматически.</p><p><a href="https://github.com/DontFWithTheJ/NineSliceEditor/blob/master/' + githubPath + '">Открыть README на GitHub</a></p>';
