@@ -2,41 +2,61 @@ NINESLICEEDITOR FREE USE LICENSE
 
 Copyright (c) 2026 Ilya Odinets
 
+1. Permission to Use and Modify
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of the NineSliceEditor software and associated source code (the "Software"),
-to use, study, modify, and use the Software for personal, educational,
-professional, and commercial project development purposes, subject to the
-following conditions:
+to use, reproduce, study, modify, and create derivative works of the Software
+for personal, educational, professional, internal, and commercial purposes,
+subject to the terms below.
 
-1. The Software may be used to develop, modify, test, and create commercial
-   or non-commercial projects without requiring payment or additional
-   licensing fees.
+2. Free Redistribution
 
-2. The Software may be modified for personal or internal development use.
+You may redistribute the original Software or modified versions of it in
+source-code or binary form, provided that:
 
-3. The Software itself, including original or modified versions of the
-   Software, may not be sold, licensed, rented, leased, sublicensed, or
-   otherwise distributed as a standalone product or as a competing software
-   product.
+(a) the redistribution is made available free of charge;
+(b) this license and the original copyright notice are included with the
+    redistributed copy;
+(c) modified versions are clearly identified as modified and are not presented
+    as the original, unmodified release; and
+(d) the redistributed copy is provided under this license, without additional
+    terms that restrict the permissions granted to recipients by this license.
 
-4. The Software may not be included in a commercial asset pack, plugin pack,
-   marketplace listing, repository, or other distribution in which the
-   Software itself is offered as a product or substantial part of a product.
+3. No Sale of the Software
 
-5. Projects, games, applications, and other works created using the Software
-   may be freely distributed and sold, including for commercial purposes.
+You may not sell, rent, lease, or otherwise provide the Software, or any
+modified version of it, in exchange for payment. You may not charge a license
+fee, subscription fee, download fee, or access fee for the Software. You may
+not offer the Software or a modified version as a paid plugin, paid asset,
+paid marketplace listing, or as a substantial part of a paid software, asset,
+or plugin package.
 
-6. This license does not grant permission to use the name "NineSliceEditor"
-   or the name "Ilya Odinets" to imply endorsement, sponsorship, or official
-   affiliation with modified or redistributed versions of the Software.
+This restriction applies to the Software itself and to modified versions of
+it. It does not prohibit selling games, applications, or other projects
+created using the Software, provided that the Software itself is not being
+sold or offered to customers as a product or a substantial part of a paid
+package.
 
-7. Any redistribution of the Software must retain this license and the
-   original copyright notice, and must comply with the restrictions above.
+4. Names and Endorsement
+
+This license does not grant permission to use the name "NineSliceEditor" or
+the name "Ilya Odinets" to imply endorsement, sponsorship, or official
+affiliation with a modified version or redistribution of the Software.
+
+5. Copyright and Other Rights
+
+The Software remains protected by applicable copyright and other intellectual
+property laws. Except for the permissions expressly granted by this license,
+no rights are transferred. This license does not grant permission to use any
+name or mark as a trademark or imply endorsement.
+
+6. Disclaimer of Warranty and Limitation of Liability
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING
-FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-DEALINGS IN THE SOFTWARE.
+FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
