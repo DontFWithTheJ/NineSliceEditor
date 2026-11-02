@@ -6,6 +6,16 @@ NineSliceEditor adds an **Edit** button next to the `Margin` property of a Slate
 
 **Available on [Fab](https://www.fab.com/).**
 
+![NineSliceEditor interface](images/editor_interface.png)
+
+## Contents
+
+- [Using the Plugin](#using-the-plugin)
+- [Building from Source](#building-from-source)
+- [License](#license)
+
+---
+
 ## Using the Plugin
 
 ### Enable the Plugin
@@ -130,6 +140,77 @@ When you finish editing, choose one of the following:
 
 - **Apply** — saves the current margins to the brush and closes the editor.
 - **Cancel** — closes the editor without applying the changes.
+
+---
+
+## Building from Source
+
+This section explains how to obtain the source code, build the plugin for a target Unreal Engine version, and add the source to a project for development and debugging.
+
+### Get the Source Code
+
+Clone the repository:
+
+```bash
+git clone https://github.com/DontFWithTheJ/NineSliceEditor.git
+```
+
+Alternatively, open the [GitHub repository](https://github.com/DontFWithTheJ/NineSliceEditor), select **Code → Download ZIP**, and extract the archive.
+
+### Packaging with Unreal Automation Tool
+
+Use this method to package the plugin independently of a project. The resulting package can then be installed into a project or an engine installation.
+
+On Windows, open Command Prompt and run the following command. Replace the example paths with the actual paths on your computer.
+
+```bat
+"C:\Path\To\UnrealEngine\Engine\Build\BatchFiles\RunUAT.bat" BuildPlugin -Plugin="C:\Path\To\NineSliceEditor\NineSliceEditor.uplugin" -Package="C:\Path\To\Output\NineSliceEditor" -TargetPlatforms=Win64
+```
+
+The command arguments are:
+
+- `RunUAT.bat` — the Unreal Automation Tool script from the engine version you want to build with.
+- `-Plugin` — the path to the source plugin's `NineSliceEditor.uplugin` file.
+- `-Package` — the output directory where the packaged plugin will be created.
+- `-TargetPlatforms=Win64` — builds the plugin for Windows 64-bit.
+
+The source plugin directory must contain `NineSliceEditor.uplugin`.
+
+When the process finishes, check the output directory specified by `-Package`. It should contain the packaged plugin.
+
+**To install the packaged plugin in a project**, copy its `NineSliceEditor` folder into:
+
+```text
+YourProject/Plugins/NineSliceEditor/
+```
+
+**To install it for an engine installation**, copy the same folder into:
+
+```text
+<UnrealEngine>/Engine/Plugins/Marketplace/NineSliceEditor/
+```
+
+In both cases, keep `NineSliceEditor.uplugin` directly inside the `NineSliceEditor` folder. Open the project and enable the plugin through **Edit → Plugins** if necessary.
+
+Use `RunUAT.bat` from the Unreal Engine version you are targeting. Building with one engine version does not automatically make the package compatible with other versions.
+
+### Building Through an Unreal Project
+
+Use this method when you want to work on the plugin's C++ source code from within an Unreal Engine project.
+
+1. Close Unreal Engine.
+2. Copy the source `NineSliceEditor` folder into your project's `Plugins` directory.
+3. Check that the descriptor is located at `YourProject/Plugins/NineSliceEditor/NineSliceEditor.uplugin`.
+4. Generate or refresh the project files if required by your IDE.
+5. Open the project in your C++ IDE.
+6. Build the project's **Development Editor** target for **Win64**.
+7. Open the project and enable NineSliceEditor through **Edit → Plugins** if necessary.
+
+This method is intended for development and debugging. The project must have a working Unreal Engine C++ build environment.
+
+If the plugin does not compile with a different Unreal Engine version, source code changes may be required because engine APIs and build requirements can change between releases.
+
+---
 
 ## License
 
