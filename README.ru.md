@@ -1,4 +1,4 @@
-# NineSliceEditor
+# Nine Slice Editor
 
 Визуальное редактирование и предварительный просмотр полей 9-slice у Slate Brush непосредственно на текстуре в Unreal Engine.
 
