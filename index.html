@@ -49,11 +49,13 @@ const cache={};let language='en',headings=[],navItems=[];
 function slug(value){return value.toLocaleLowerCase().trim().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^\p{L}\p{N}_\s-]/gu,'').replace(/\s+/g,'-').replace(/-+/g,'-')}
 function closeMenu(){document.body.classList.remove('nav-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label',language==='ru'?'Открыть навигацию':'Open navigation');backdrop.setAttribute('aria-hidden','true')}
 function toggleMenu(){const open=!document.body.classList.contains('nav-open');document.body.classList.toggle('nav-open',open);menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?(language==='ru'?'Закрыть навигацию':'Close navigation'):(language==='ru'?'Открыть навигацию':'Open navigation'));backdrop.setAttribute('aria-hidden',String(!open))}
-function prepareContent(){
 function handleDocumentationImages(){content.querySelectorAll('img').forEach(img=>{img.addEventListener('error',()=>{if(img.dataset.failed)return;img.dataset.failed='true';const note=document.createElement('div');note.className='image-error';note.textContent=(img.alt||'Image')+' could not be loaded: '+img.getAttribute('src');img.replaceWith(note)},{once:true})})}
- const tocName=language==='ru'?'содержание':'contents',toc=Array.from(content.querySelectorAll('h2')).find(h=>h.textContent.trim().toLocaleLowerCase()===tocName);
- if(toc){const list=toc.nextElementSibling,hr=list&&list.nextElementSibling&&list.nextElementSibling.tagName==='HR'?list.nextElementSibling:null;toc.remove();if(list&&list.tagName==='UL')list.remove();if(hr)hr.remove()}
- const used=new Map();headings=Array.from(content.querySelectorAll('h2,h3'));headings.forEach((h,i)=>{const base=slug(h.textContent)||'section-'+i,count=used.get(base)||0;used.set(base,count+1);h.id=count?base+'-'+count:base})
+function prepareContent(){
+ const tocName=language==='ru'?'содержание':'contents';
+ const allHeadings=Array.from(content.querySelectorAll('h2,h3'));
+ const used=new Map();
+ allHeadings.forEach((h,i)=>{const base=slug(h.textContent)||'section-'+i,count=used.get(base)||0;used.set(base,count+1);h.id=count?base+'-'+count:base});
+ headings=allHeadings.filter(h=>!(h.tagName==='H2'&&h.textContent.trim().toLocaleLowerCase()===tocName));
 }
 let navigationTargetId=null;
 function setActiveNavigation(id){const heading=headings.find(item=>item.id===id);const parent=heading&&heading.tagName==='H3'?headings.slice(0,headings.indexOf(heading)+1).reverse().find(item=>item.tagName==='H2'):heading;navItems.forEach(item=>item.link.classList.toggle('active',item.heading.id===id||(item.heading.tagName==='H2'&&parent&&item.heading.id===parent.id)))}
