@@ -131,8 +131,6 @@ When you finish editing, choose one of the following:
 - **Apply** — saves the current margins to the brush and closes the editor.
 - **Cancel** — closes the editor without applying the changes.
 
----
-
 ## License
 
 NineSliceEditor is free to use and modify, including in commercial projects. Redistribution of the original or modified plugin is permitted only under the terms of the included license.
