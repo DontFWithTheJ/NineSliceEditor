@@ -1,4 +1,4 @@
-# NineSliceEditor
+# Nine Slice Editor
 
 Edit and preview 9-slice margins for Slate Brushes directly on the texture in Unreal Engine.
 
